@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 ## coding=utf-8
 """
 The ni_usb_6501 is a digital IO module for USB from National Instruments.
@@ -171,9 +171,9 @@ class NiUsb6501:
 
     def packet_matches(self, actual, expected, mask):
         if len(actual) != len(expected):
-            print repr(actual)
-            print repr(expected)
-            print repr(mask)
+            print (repr(actual))
+            print (repr(expected))
+            print (repr(mask))
             raise ValueError('Protocol error - invalid response length %d' % len(actual))
 
         for b, e, m in zip(actual, expected, mask):
@@ -197,4 +197,4 @@ if __name__ == "__main__":
     dev.write_port(0, 0b11001100)
     dev.write_port(1, 0b10101010)
 
-    print bin(dev.read_port(2))
+    print (bin(dev.read_port(2)))
